@@ -64,7 +64,59 @@ The data schema will include fields for recipe name, ingredients, cooking instru
 ## Roadmap
 
 1. **Setup and Initial Configuration**: Set up the development environment, create project repositories, and configure basic server and client frameworks.
-2. **API Integration**: Integrate with an external recipe API to fetch recipe data.
+   Set up the frontend React project:
+   -npx create-react-app  
+   -npm install react-router-dom axios
+
+   - Develop basic component structures such as HomePage, RecipeOverview, and RecipeDetail.
+
+   Set up the backend Express project:
+   -npx express-generator
+   -npm install
+   -npm install body-parser cors
+
+   - Configure basic routes and middleware for API handling.
+
+2. **API Integration**: Integrate with an external recipe API to fetch recipe data. (if there is no approprate api can use, then use MySQL to create database)
+
+- Design the database schema in MySQL Workbench. Create tables for `recipes`, `users`, and `ratings`.
+
+  - Implement the schema in MySQL:
+
+    ```sql
+    CREATE DATABASE my_recipe_db;
+    USE my_recipe_db;
+
+    CREATE TABLE recipes (
+      recipe_id INT AUTO_INCREMENT PRIMARY KEY,
+      title VARCHAR(255),
+      ingredients TEXT,
+      steps TEXT
+    );
+
+    CREATE TABLE users (
+      user_id INT AUTO_INCREMENT PRIMARY KEY,
+      username VARCHAR(255) UNIQUE,
+      password_hash VARCHAR(255)
+    );
+    ```
+
+  [nice to have,not must have
+  CREATE TABLE ratings (
+  rating_id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  recipe_id INT,
+  score INT,
+  comment TEXT,
+  FOREIGN KEY (user_id) REFERENCES users(user_id),
+  FOREIGN KEY (recipe_id) REFERENCES recipes(recipe_id)
+  );]
+
+  - Populate the database with seed data for initial testing:
+    sql
+    INSERT INTO recipes (title, ingredients, steps) VALUES ('food names');
+    INSERT INTO users (username, password) VALUES ('demo_user', 'password');
+
 3. **Frontend Development**: Develop the Home Page, Recipe Overview Page, and Detailed Recipe Page.
 4. **Backend Services**: Implement backend services to manage and serve recipe data.
 5. **Testing and Debugging**: Test the website for functionality, usability, and responsiveness.
