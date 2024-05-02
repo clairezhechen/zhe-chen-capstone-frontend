@@ -1,128 +1,70 @@
-# zhe-chen-capstone-frontend
+# Getting Started with Create React App
 
-## Project Title
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Recipe Delight
+## Available Scripts
 
-## Overview
+In the project directory, you can run:
 
-Recipe Delight is a user-friendly website where food enthusiasts can explore, search, and learn from a vast collection of recipes. It offers detailed recipe instructions and allows users to search recipes by ingredients or categories.
+### `npm start`
 
-### Problem
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Finding recipes that match specific dietary preferences or ingredients on hand can be time-consuming. Many recipe sites are cluttered and difficult to navigate. Recipe Delight addresses this by providing a streamlined, easy-to-use interface that focuses on user experience and accessibility.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### User Profile
+### `npm test`
 
-- Home cooks looking for recipe inspiration.
-- Individuals with dietary restrictions searching for suitable recipes.
-- Culinary enthusiasts who enjoy exploring new recipes and cuisines.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Features
+### `npm run build`
 
-- **Search Functionality**: Allows users to search for recipes based on ingredients or recipe names.
-- **Recipe Overview Page**: Displays recipes in a card format with essential details visible at a glance.
-- **Detailed Recipe View**: Users can click on a recipe card to view detailed cooking instructions and ingredient lists.
-- **Responsive Design**: Ensures that the website is accessible and functional on both desktops and mobile devices.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Implementation
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Tech Stack
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- **Frontend**: React, react-router, axios for building the user interface.
-- **Backend**: Node.js with Express for handling API requests.(maynot use: knex and bcrypt for password)
-- **Database**: mySQL for storing recipe data.
-- **Styling**: CSS for responsive design.
+### `npm run eject`
 
-### APIs
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- Utilize an existing recipe API for the first phase of the project. If a suitable API is not found, consider developing a custom database.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Sitemap
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- **Home Page**: Introduction and basic information about the website.
-- **Recipe Overview Page**: Search bar at the top; recipes displayed in a grid format.
-- **Detailed Recipe Page**: Full recipe details when a recipe card is clicked.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-### Mockups
+## Learn More
 
-![](mockup.png)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Data
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-The data schema will include fields for recipe name, ingredients, cooking instructions, and categories to facilitate easy searching and sorting.
+### Code Splitting
 
-### Endpoints
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-- **GET /recipes**: Fetch a list of recipes based on query parameters.
-- **GET /recipes/:id**: Fetch detailed information about a specific recipe.
+### Analyzing the Bundle Size
 
-### Auth
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-- Initial implementation will not include user authentication. Consider adding user accounts and authentication in future phases to allow saving favorite recipes and custom settings.
+### Making a Progressive Web App
 
-## Roadmap
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-1. **Setup and Initial Configuration**: Set up the development environment, create project repositories, and configure basic server and client frameworks.
-   Set up the frontend React project:
-   -npx create-react-app  
-   -npm install react-router-dom axios
+### Advanced Configuration
 
-   - Develop basic component structures such as HomePage, RecipeOverview, and RecipeDetail.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-   Set up the backend Express project:
-   -npx express-generator
-   -npm install
-   -npm install body-parser cors
+### Deployment
 
-   - Configure basic routes and middleware for API handling.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-2. **API Integration**: Integrate with an external recipe API to fetch recipe data. (if there is no approprate api can use, then use MySQL to create database)
+### `npm run build` fails to minify
 
-- Design the database schema in MySQL Workbench. Create tables for `recipes`, `users`, and `ratings`.
-
-  - Implement the schema in MySQL:
-
-    ```sql
-    CREATE DATABASE my_recipe_db;
-    USE my_recipe_db;
-
-    CREATE TABLE recipes (
-      recipe_id INT AUTO_INCREMENT PRIMARY KEY,
-      title VARCHAR(255),
-      ingredients TEXT,
-      steps TEXT
-    );
-
-    CREATE TABLE users (
-      user_id INT AUTO_INCREMENT PRIMARY KEY,
-      username VARCHAR(255) UNIQUE,
-      password_hash VARCHAR(255)
-    );
-    ```
-
-  [nice to have,not must have
-  CREATE TABLE ratings (
-  rating_id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT,
-  recipe_id INT,
-  score INT,
-  comment TEXT,
-  FOREIGN KEY (user_id) REFERENCES users(user_id),
-  FOREIGN KEY (recipe_id) REFERENCES recipes(recipe_id)
-  );]
-
-  - Populate the database with seed data for initial testing:
-    sql
-    INSERT INTO recipes (title, ingredients, steps) VALUES ('food names');
-    INSERT INTO users (username, password) VALUES ('demo_user', 'password');
-
-3. **Frontend Development**: Develop the Home Page, Recipe Overview Page, and Detailed Recipe Page.
-4. **Backend Services**: Implement backend services to manage and serve recipe data.
-5. **Testing and Debugging**: Test the website for functionality, usability, and responsiveness.
-
-## Nice-to-haves
-
-- **User Comments and Ratings**: Allow users to rate recipes and leave comments.
-- **Recipe Sharing**: Enable users to share recipes on social media.
-- **User Profile and Favorites**: Allow users to create profiles and save their favorite recipes.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

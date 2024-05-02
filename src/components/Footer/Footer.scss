@@ -1,0 +1,39 @@
+.footer {
+  text-align: center; // 设置文本居中
+  padding: 20px;
+  background-color: #f8f8f8; // 可以根据需要调整背景色
+
+  .footer__top {
+    display: flex;
+    justify-content: center; // 使logo水平居中
+  }
+
+  .footer-content {
+    margin-top: 10px; // 在“Follow Us”和logo之间添加一些空间
+
+    .footer-content__title {
+      margin-bottom: 10px; // 在“Follow Us”和图标之间添加空间
+    }
+
+    .footer-links {
+      display: none; // 如果不需要这部分，可以隐藏
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: center; // 使图标水平居中
+      gap: 10px; // 图标之间的间隔
+
+      .social-icon {
+        width: 30px; // 图标的宽度
+        height: 30px; // 图标的高度
+      }
+    }
+  }
+
+  p {
+    margin-top: 20px; // 在社交媒体图标下方添加空间
+    font-size: 0.8em;
+    color: #666;
+  }
+}

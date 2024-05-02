@@ -1,0 +1,40 @@
+@use "../../styles/globals.scss";
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/typography.scss" as *;
+.home {
+  background-image: url("../../assets/Images/image1.jpg");
+  display: flex;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: $Primary-White;
+  text-align: center;
+  padding: 50px;
+  height: 190px;
+  width: 100vw;
+  h1,
+  p {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.start-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff4500; // 橘红色背景
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none; // 去除下划线
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #e03e10; // 鼠标悬停时变暗
+  }
+
+  &:active {
+    background-color: #c92a00; // 点击时更暗
+  }
+}

@@ -1,0 +1,46 @@
+@use "../../styles/globals.scss";
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/typography.scss" as *;
+
+.header {
+  display: flex; // 使用flex布局
+  align-items: center; // 垂直居中对齐
+  justify-content: center;
+  background-color: #f8f8f8; // 你可以根据网站的主题调整背景颜色
+  padding: 1rem; // 添加一些内边距
+  @include desktop {
+    justify-content: flex-start;
+    padding: 1rem 3rem;
+    gap: 36rem;
+    font-size: 1.1rem;
+  }
+
+  a {
+    display: flex; // 确保链接内部也是flex布局
+    align-items: center; // 垂直居中
+    text-decoration: none; // 去除链接下划线
+
+    .header__logo {
+      @include desktop {
+        margin-right: 10px; // 在logo和标题文字之间添加一些空间
+      }
+    }
+
+    h3 {
+      display: none;
+      margin: 0; // 移除h3的默认外边距
+      color: #333; // 设定文字颜色，可以根据需要调整
+      font-size: 24px; // 设定适当的字体大小
+      @include desktop {
+        display: block;
+      }
+    }
+  }
+}
+.header__button {
+  display: none;
+  @include desktop {
+    display: block;
+  }
+}

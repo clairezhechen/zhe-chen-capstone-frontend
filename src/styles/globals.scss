@@ -1,0 +1,10 @@
+@use "./partials/variables.scss" as *;
+@use "./partials/mixin.scss" as *;
+@use "./partials/typography.scss" as *;
+
+body {
+  margin: 0;
+  font-family: Jost, sans-serif;
+  font-size: 0.875rem;
+  background-color: $Background-Light-grey;
+}
