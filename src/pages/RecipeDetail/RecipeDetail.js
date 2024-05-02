@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import { fetchRecipeDetails, postComment } from "../../utils/functions";
 
 const RecipeDetail = () => {
-  const { recipeId } = useParams(); // 从URL获取recipeId
-  const [recipe, setRecipe] = useState(null);
+  const { recipeId } = useParams();
+  const [recipe, setRecipe] = useState({
+    comments: "", // 初始为空字符串或适当的默认值
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -12,6 +14,10 @@ const RecipeDetail = () => {
     const loadRecipeDetails = async () => {
       try {
         const data = await fetchRecipeDetails(recipeId);
+        console.log("Received data:", data); // 确认接收到的数据
+        if (!data || typeof data.comments !== "string") {
+          throw new Error("Recipe data is incomplete.");
+        }
         setRecipe(data);
       } catch (err) {
         console.error("Error fetching recipe details:", err);
@@ -26,9 +32,21 @@ const RecipeDetail = () => {
 
   const handleCommentSubmit = async (event) => {
     event.preventDefault();
-    const commentInput = event.target.elements[0]; // Assuming the first element is the input
+    const authorInput = event.target.elements[0];
+    const commentInput = event.target.elements[1]; // Assuming the first element is the input
     try {
-      await postComment(recipeId, commentInput.value);
+      const newComment = {
+        author: authorInput.value,
+        comment: commentInput.value,
+      };
+      await postComment(recipeId, authorInput.value, commentInput.value);
+      const data = await fetchRecipeDetails(recipeId);
+      setRecipe(data);
+      // setRecipe((prevRecipe) => ({
+      //   ...prevRecipe,
+      //   comments: [...prevRecipe.comments, newComment], // Append new comment to existing comments
+      // }));
+      authorInput.value = "";
       commentInput.value = ""; // Clear the input after submission
       // Optionally refresh comments or append to list
     } catch (error) {
@@ -40,6 +58,12 @@ const RecipeDetail = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!recipe) return <p>No recipe found!</p>;
+  if (typeof recipe.comments !== "string")
+    return <p>Comments are not available.</p>;
+
+  // const comments = recipe && recipe.comments ? recipe.comments.split(",") : [];
+  // const comments =
+  //   typeof recipe.comments === "string" ? recipe.comments.split(",") : [];
 
   const comments = recipe.comments ? recipe.comments.split(",") : [];
   const authors = recipe.authors ? recipe.authors.split(",") : [];
