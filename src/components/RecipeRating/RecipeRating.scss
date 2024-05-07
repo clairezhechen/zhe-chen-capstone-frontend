@@ -1,0 +1,21 @@
+@use "../../styles/globals.scss";
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/typography.scss" as *;
+
+.recipe-rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  @include desktop {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+.rating-title {
+  @include desktop {
+    font-size: 2.5rem;
+  }
+}

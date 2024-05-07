@@ -1,0 +1,22 @@
+@use "../../styles/globals.scss";
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/typography.scss" as *;
+.back-button {
+  padding: 5px;
+  background-color: $Primary-Orange;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: $Primary-White;
+  @include desktop {
+    padding: 3px;
+    width: 5rem;
+    margin-right: 1rem;
+    font-size: 3rem;
+  }
+}
+.back-button:hover {
+  background-color: #ddd; /* 鼠标悬停时改变背景颜色 */
+}

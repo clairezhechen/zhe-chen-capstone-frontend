@@ -1,0 +1,123 @@
+@use "../../styles/globals.scss";
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/typography.scss" as *;
+.card {
+  display: flex;
+  background: $Primary-White;
+  border: 1px solid $Secondary-White;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-image {
+    width: 10rem; // 调整为需要的宽度
+    height: 10rem; // 根据图片的原始宽高比自动调整高度
+    object-fit: cover; // 确保图片覆盖整个区域，不被拉伸或压缩
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; // 在垂直方向上平均分布子元素
+    padding: 5px;
+    width: 60%; // 填充剩余的空间
+    align-items: flex-start; // 左对齐子元素
+
+    .category {
+      font-size: 14px;
+      font-weight: 600;
+      color: $Primary-Orange;
+      margin-bottom: 5px;
+      @include desktop {
+        font-size: 1.125rem;
+      }
+    }
+    .recipe-name {
+      @include desktop {
+        font-size: 1.5rem;
+      }
+    }
+
+    h3 {
+      margin: 5px 0;
+      color: #333;
+    }
+
+    a {
+      font-size: 0.875rem;
+      padding: 10px 15px;
+      background-color: $Primary-Orange;
+      color: $Primary-White;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $Primary-Indigo;
+      }
+    }
+  }
+}
+.card__button {
+  @include desktop {
+    margin: 0.5rem;
+  }
+}
+// 响应式设计调整
+@include desktop {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 创建两列，每列平均分配空间
+    grid-gap: 20px; // 设置网格间隙
+    padding: 20px; // 如果需要可以对容器添加一些内边距
+
+    .card {
+      background: $Primary-White;
+      border: 1px solid $Secondary-White;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-image {
+        width: 100%;
+        height: 250px; // 或根据需要调整高度
+        object-fit: cover; // 确保图片适应容器尺寸
+      }
+
+      .card-body {
+        padding: 20px;
+        .card-rate {
+          margin-top: 1rem;
+          margin-bottom: 0;
+          @include desktop {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .card {
+    flex-direction: row;
+    align-items: center;
+
+    .card-image {
+      width: 100%; // 在较小屏幕上图片占满整个卡片宽度
+    }
+
+    .card-body {
+      width: 100%; // 适应全宽
+      align-items: center; // 中心对齐子元素
+    }
+  }
+}

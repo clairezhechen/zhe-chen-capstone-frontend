@@ -1,0 +1,200 @@
+@use "../../styles/globals.scss";
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/typography.scss" as *;
+
+.recipe__detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.5rem 1rem 1rem;
+  @include desktop {
+    padding: 7rem 3rem 1rem;
+  }
+}
+.recipe__detail-upper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 1rem;
+}
+.recipe__detail-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.recipe__detail-lower {
+  border-bottom: 1px solid $Supporting-Gray;
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1rem;
+    width: 87vw;
+  }
+}
+.recipe__name {
+  margin: 1rem 0 1rem 0.8rem;
+  @include desktop {
+    font-size: 4rem;
+  }
+}
+.recipe__dish-img {
+  width: 90vw;
+  height: 84vw;
+  @include desktop {
+    width: 55vw;
+    height: 55vw;
+  }
+}
+.recipe__intro-wrapper {
+  border-bottom: 1px solid $Supporting-Gray;
+  @include desktop {
+    padding: 0 2rem;
+  }
+}
+.recipe__intro-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  @include desktop {
+    font-size: 2.5rem;
+  }
+}
+.recipe-intro {
+  @include desktop {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+}
+.recipe__detail--lower-right {
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4rem;
+    font-size: 1.5rem;
+  }
+}
+.recipe-tags {
+  font-weight: 700;
+  color: $Primary-Indigo;
+}
+.recipe-area {
+  font-weight: 700;
+  color: $Primary-Indigo;
+}
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.recipe-youtube {
+  border-bottom: 1px solid $Supporting-Gray;
+  padding-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include desktop {
+  }
+}
+.youtube-title {
+  margin-top: 0;
+  @include desktop {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+  }
+}
+// .rates {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 1rem;
+// }
+// .rates-star {
+//   font-size: 1.5rem;
+//   padding: 0.2rem;
+//   color: grey;
+// }
+// .rating-star.active {
+//   color: gold; // 激活状态的颜色
+// }
+.comments {
+  display: flex;
+  flex-direction: column;
+  background-color: $Supporting-Gray;
+  width: 80vw;
+  padding: 1rem;
+  @include desktop {
+    width: 90vw;
+  }
+}
+.comments-title {
+  @include desktop {
+    font-size: 2rem;
+  }
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+.comment-label {
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+.comment__input-author {
+  height: 1.5rem;
+}
+.comment__input-comment {
+  height: 5rem;
+  font-family: JOST, sans-serif;
+}
+.comment-button {
+  margin-top: 1rem;
+  height: 2.5rem;
+  background-color: $Primary-Orange;
+  color: $Primary-White;
+  border-radius: 0.25rem;
+  border: none;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $Secondary-Orange;
+  }
+
+  &:active {
+    background-color: $Supporting-Orange;
+  }
+}
+.comment-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+.comment-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.comment-right {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $Primary-White;
+  padding: 1rem 0;
+  .comment-author {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .comment-text {
+    text-align: left;
+    margin-top: 4px; /* 在作者和评论内容之间添加一点垂直间距 */
+  }
+}
+.user-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  vertical-align: middle;
+}

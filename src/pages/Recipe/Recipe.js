@@ -5,11 +5,12 @@ import "./Recipe.scss";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Loading from "../../components/Loading/Loading";
+import BackButton from "../../components/BackButton/BackButton";
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true); // 初始化时即设置为加载状态
-  const [filteredItems, setFilteredItems] = useState([]);
+  const [allRecipes, setAllRecipes] = useState([]);
   const [error, setError] = useState(""); // 添加用于存储错误信息的状态
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const Recipe = () => {
     try {
       const response = await fetchAllRecipes();
       setRecipes(response);
-      setFilteredItems(response);
+      setAllRecipes(response);
     } catch (error) {
       console.error("Error fetching recipes:", error);
       setError("Failed to fetch recipes."); // 设置错误信息
@@ -29,9 +30,10 @@ const Recipe = () => {
       console.log("Loading state set to false.");
     }
   };
-
+  // 这个部分就是searchbar的部分，已经解决了！
   const handleSearchChange = (searchTerm) => {
-    const filtered = recipes.filter((recipe) =>
+    console.log(searchTerm);
+    const filtered = allRecipes.filter((recipe) =>
       recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setRecipes(filtered);
@@ -47,18 +49,29 @@ const Recipe = () => {
         <div className="error-message">{error}</div>
       ) : (
         <div className="recipe-container">
-          <div>
-            <SearchBar onSearchChange={handleSearchChange} />
+          <div className="recipe__header-wrapper">
+            <div className="back-button">
+              <BackButton />{" "}
+            </div>
+            <div className="recipe__search-bar">
+              <SearchBar onSearchChange={handleSearchChange} />
+            </div>
           </div>
-          {recipes.length > 0 ? (
-            recipes.map((recipe) => (
-              <Link key={recipe.id} to={`/recipe/${recipe.id}`}>
-                <RecipeCard recipe={recipe} />
-              </Link>
-            ))
-          ) : (
-            <p>No recipes found.</p> // 当没有食谱时显示信息
-          )}
+          <div className="cards-container">
+            {recipes.length > 0 ? (
+              recipes.map((recipe) => (
+                <Link
+                  className="cards-link"
+                  key={recipe.id}
+                  to={`/recipe/${recipe.id}`}
+                >
+                  <RecipeCard recipe={recipe} />
+                </Link>
+              ))
+            ) : (
+              <p>No recipes found.</p>
+            )}
+          </div>
         </div>
       )}
     </>

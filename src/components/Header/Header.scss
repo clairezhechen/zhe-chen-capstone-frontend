@@ -4,43 +4,62 @@
 @use "../../styles/partials/typography.scss" as *;
 
 .header {
-  display: flex; // 使用flex布局
-  align-items: center; // 垂直居中对齐
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 95vw;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  background-color: #f8f8f8; // 你可以根据网站的主题调整背景颜色
-  padding: 1rem; // 添加一些内边距
+  background-color: $Primary-White;
+  padding: 0.8rem 1rem;
+  border-bottom: $Supporting-Gray 1px solid;
   @include desktop {
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 1rem 3rem;
-    gap: 36rem;
+    width: 93vw;
     font-size: 1.1rem;
   }
 
   a {
-    display: flex; // 确保链接内部也是flex布局
-    align-items: center; // 垂直居中
-    text-decoration: none; // 去除链接下划线
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 
     .header__logo {
       @include desktop {
-        margin-right: 10px; // 在logo和标题文字之间添加一些空间
+        margin-right: 10px;
       }
     }
 
     h3 {
       display: none;
-      margin: 0; // 移除h3的默认外边距
-      color: #333; // 设定文字颜色，可以根据需要调整
-      font-size: 24px; // 设定适当的字体大小
+      margin: 0;
+      color: $Primary-Black;
+      font-size: 1.5rem;
       @include desktop {
         display: block;
       }
     }
   }
 }
-.header__button {
+.header__button--wrapper {
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+.header__button-content {
   display: none;
   @include desktop {
     display: block;
+    color: $Primary-Black;
+    text-transform: none;
+    cursor: pointer;
+    transition: color 0.2s ease-out;
+    &:hover {
+      color: $Primary-Orange;
+    }
   }
 }

@@ -1,0 +1,11 @@
+@use "../../styles/globals.scss";
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/typography.scss" as *;
+.youtube-img {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 1); /* 添加阴影 */
+  @include desktop {
+    width: 60vw;
+    margin-bottom: 2rem;
+  }
+}

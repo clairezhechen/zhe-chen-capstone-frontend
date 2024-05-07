@@ -1,39 +1,46 @@
+@use "../../styles/globals.scss";
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/typography.scss" as *;
 .footer {
-  text-align: center; // 设置文本居中
-  padding: 20px;
-  background-color: #f8f8f8; // 可以根据需要调整背景色
+  text-align: center;
+  padding: 1rem;
+  background-color: $Primary-White;
+
+  @include desktop {
+  }
 
   .footer__top {
     display: flex;
-    justify-content: center; // 使logo水平居中
+    justify-content: center;
   }
 
   .footer-content {
-    margin-top: 10px; // 在“Follow Us”和logo之间添加一些空间
+    margin-top: 0.625rem;
 
     .footer-content__title {
-      margin-bottom: 10px; // 在“Follow Us”和图标之间添加空间
+      margin-bottom: 0.625rem;
     }
 
     .footer-links {
-      display: none; // 如果不需要这部分，可以隐藏
+      display: none;
     }
 
     .social-media {
       display: flex;
-      justify-content: center; // 使图标水平居中
-      gap: 10px; // 图标之间的间隔
+      justify-content: center;
+      gap: 1.625rem;
 
       .social-icon {
-        width: 30px; // 图标的宽度
-        height: 30px; // 图标的高度
+        width: 1.5rem;
+        height: 1.5rem;
       }
     }
   }
 
   p {
-    margin-top: 20px; // 在社交媒体图标下方添加空间
-    font-size: 0.8em;
-    color: #666;
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    color: $Secondary-Slate;
   }
 }

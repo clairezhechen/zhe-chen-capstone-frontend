@@ -20,7 +20,7 @@ const SearchBar = ({ onSearchChange }) => {
       />
       <button
         type="button"
-        class="search-button"
+        className="search-button"
         aria-label="Search Recipe Delight"
         aria-expanded="false"
       >

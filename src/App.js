@@ -12,11 +12,6 @@ import Footer from "./components/Footer/Footer";
 import "./App.css"; // Stylesheet import
 
 function App() {
-  // Application state for loading status, search query, and recipes list
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [query, setQuery] = useState("");
-  // const [recipes, setRecipes] = useState([]);
-
   return (
     <BrowserRouter>
       <Header />
@@ -24,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/recipes" element={<Recipe />} />
         <Route path="/recipe/:recipeId" element={<RecipeDetail />} />
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

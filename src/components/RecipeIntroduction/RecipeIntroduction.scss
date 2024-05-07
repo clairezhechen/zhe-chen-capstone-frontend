@@ -1,0 +1,10 @@
+@use "../../styles/globals.scss";
+@use "../../styles/partials/mixin.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/typography.scss" as *;
+
+.paragraph {
+  @include desktop {
+    font-size: 1.5rem;
+  }
+}
