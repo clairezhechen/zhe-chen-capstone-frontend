@@ -46,7 +46,8 @@ Finding recipes that match specific dietary preferences or ingredients on hand c
 
 ### Mockups
 
-![](./src/assets/Images/mockup.png)
+![](./src/assets/Images/mockup1.png)
+https://excalidraw.com/#json=Toyjw1S3xKbeHhSOiQ-pD,JjP_YkeLXskWAdhqVRF_YA
 
 ### Data
 
